@@ -33,7 +33,8 @@ FONT
 
 .playerPage, .playerProfile
 {
-    background: url("images/players.png") no-repeat center top;
+    background: url("images/players.jpg") no-repeat center top;
+    background-size: contain;
     padding: 0 0 500px;
     display: block;
     top: 0;
@@ -43,7 +44,8 @@ FONT
 
 .clubPage
 {
-    background: url("images/clubs.jpg") no-repeat center top;
+    background: url("images/clubs.webp") no-repeat center top;
+    background-size: contain;
     padding: 0 0 500px;
     display: block;
     top: 0;
@@ -63,7 +65,8 @@ FONT
 
 .teamPage
 {
-    background: url("images/teams.png") no-repeat center;
+    background: url("images/teams.jpg") no-repeat center;
+    background-size: contain;
     padding: 0 0 500px;
     display: block;
     top: 0;
