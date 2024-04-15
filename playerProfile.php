@@ -38,10 +38,10 @@
 
     $query = htmlspecialchars($query);
 
-    $playerInfo = "SELECT first_name AS firstName, middle_name AS middleName, last_name AS lastName, father_name AS father, mother_name AS mother, date_of_birth AS dob
+    $playerInfo = "SELECT first_name AS firstName, last_name AS lastName, date_of_birth AS dob
                     FROM players WHERE playerID = '$query'";
 
-    $history = "SELECT transferred_to AS transferredTo, transferred_from as transferredFrom, total_runs AS runs, total_wickets AS wickets, club_name AS club, team_leader AS leader
+    $history = "SELECT total_runs AS runs, total_wickets AS wickets, club_name AS club, team_leader AS leader
                 FROM player_history WHERE playerID = '$query'";
 
 
@@ -56,21 +56,14 @@
     if (!empty($info1['firstName']))
     {
         $name = $info1['firstName'];
-        $name .= " " . $info1['middleName'];
         $name .= " " . $info1['lastName'];
-        $father = $info1['father'];
-        $mother = $info1['mother'];
         $dob = $info1['dob'];
 
 
         echo "Player Name: $name <br><br>";
-        echo "Father's Name: $father <br><br>";
-        echo "Mother's Name: $mother <br><br>";
         echo "Date of Birth: $dob <br><br>";
 
         $club = $info2['club'];
-        $transferred_to = $info2['transferredTo'];
-        $transferred_from = $info2['transferredTo'];
         $total_runs = $info2['runs'];
         $total_wickets = $info2['wickets'];
         $team_leader = $info2['leader'];
@@ -81,8 +74,6 @@
 
             <tr>
                 <th>Club Name</th>
-                <th>From</th>
-                <th>To</th>
                 <th>Total Runs</th>
                 <th>Total Wickets</th>
                 <th>Team leader (Y/N)</th>
@@ -90,8 +81,6 @@
 
             <tr>
                 <td>$club</td>
-                <td>$transferred_to</td>
-                <td>$transferred_from</td>
                 <td> $total_runs</td>
                 <td>$total_wickets</td>
                 <td>$team_leader</td>

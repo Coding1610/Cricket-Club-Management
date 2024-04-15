@@ -58,21 +58,6 @@ CREATE TABLE `contracts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `education`
---
-
-CREATE TABLE `education` (
-  `playerID` int(10) NOT NULL,
-  `degree` varchar(20) NOT NULL,
-  `institution` varchar(30) NOT NULL,
-  `department` varchar(30) NOT NULL,
-  `result` varchar(10) DEFAULT NULL,
-  `year` int(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `events_organised`
 --
 
@@ -81,21 +66,6 @@ CREATE TABLE `events_organised` (
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   `eventName` varchar(40) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `locations`
---
-
-CREATE TABLE `locations` (
-  `locationID` int(10) NOT NULL,
-  `house` varchar(5) DEFAULT NULL,
-  `street` varchar(20) DEFAULT NULL,
-  `postCode` varchar(10) DEFAULT NULL,
-  `thana` varchar(20) NOT NULL,
-  `district` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -131,21 +101,6 @@ CREATE TABLE `match_performance` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `membership_details`
---
-
-CREATE TABLE `membership_details` (
-  `membershipID` int(10) NOT NULL,
-  `Membership_name` varchar(30) NOT NULL,
-  `membership_type` varchar(20) DEFAULT NULL,
-  `Regi_date` date DEFAULT NULL,
-  `exp_date` date DEFAULT NULL,
-  `playerID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `payment_schedule`
 --
 
@@ -157,21 +112,6 @@ CREATE TABLE `payment_schedule` (
   `payment_serial` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `personal_best`
---
-
-CREATE TABLE `personal_best` (
-  `playerID` int(10) NOT NULL,
-  `club_name` varchar(30) NOT NULL,
-  `club_against` varchar(30) NOT NULL,
-  `runs` int(7) NOT NULL,
-  `wickets` int(5) NOT NULL,
-  `matchID` int(15) DEFAULT NULL,
-  `eventID` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -182,12 +122,7 @@ CREATE TABLE `personal_best` (
 CREATE TABLE `players` (
   `playerID` int(10) UNSIGNED NOT NULL,
   `first_name` varchar(20) NOT NULL,
-  `middle_name` varchar(20) DEFAULT NULL,
   `last_name` varchar(20) DEFAULT NULL,
-  `father_name` varchar(20) DEFAULT NULL,
-  `mother_name` varchar(20) DEFAULT NULL,
-  `present_locationID` int(10) NOT NULL,
-  `permanent_locationID` int(10) NOT NULL,
   `date_of_birth` date DEFAULT NULL,
   `registration_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -200,8 +135,6 @@ CREATE TABLE `players` (
 
 CREATE TABLE `player_history` (
   `club_name` varchar(30) NOT NULL,
-  `transferred_to` varchar(30) DEFAULT NULL,
-  `transferred_from` varchar(30) DEFAULT NULL,
   `total_runs` int(7) NOT NULL,
   `total_wickets` int(5) NOT NULL,
   `team_leader` char(1) NOT NULL,
@@ -253,22 +186,10 @@ ALTER TABLE `contracts`
   ADD PRIMARY KEY (`paymentID`);
 
 --
--- Indexes for table `education`
---
-ALTER TABLE `education`
-  ADD KEY `playerID` (`playerID`);
-
---
 -- Indexes for table `events_organised`
 --
 ALTER TABLE `events_organised`
   ADD PRIMARY KEY (`eventID`);
-
---
--- Indexes for table `locations`
---
-ALTER TABLE `locations`
-  ADD PRIMARY KEY (`locationID`);
 
 --
 -- Indexes for table `matches`
@@ -281,18 +202,6 @@ ALTER TABLE `matches`
 --
 ALTER TABLE `match_performance`
   ADD KEY `matchID` (`matchID`);
-
---
--- Indexes for table `membership_details`
---
-ALTER TABLE `membership_details`
-  ADD PRIMARY KEY (`membershipID`);
-
---
--- Indexes for table `personal_best`
---
-ALTER TABLE `personal_best`
-  ADD KEY `playerID` (`playerID`);
 
 --
 -- Indexes for table `players`
