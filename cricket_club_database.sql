@@ -32,8 +32,7 @@ CREATE TABLE `clubs` (
   `clubID` int(10) UNSIGNED NOT NULL,
   `club_name` varchar(30) NOT NULL,
   `president` varchar(30) DEFAULT NULL,
-  `date_established` date DEFAULT NULL,
-  `club_locationID` int(10) NOT NULL
+  `date_established` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -47,12 +46,9 @@ CREATE TABLE `contracts` (
   `clubID` int(10) NOT NULL,
   `contract_start_date` date NOT NULL,
   `contract_end_date` date NOT NULL,
-  `paymentID` int(20) UNSIGNED NOT NULL,
-  `witness1` varchar(50) NOT NULL,
-  `witness2` varchar(50) NOT NULL,
+  `contractID` int(20) UNSIGNED NOT NULL,
   `designation` varchar(30) NOT NULL,
-  `authorized_person` varchar(100) NOT NULL,
-  `contract_amount` decimal(12,2) NOT NULL
+  `authorized_person` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -80,38 +76,8 @@ CREATE TABLE `matches` (
   `team_batting_first` varchar(30) DEFAULT NULL,
   `team_bowling_first` varchar(30) DEFAULT NULL,
   `man_of_the_match` varchar(30) DEFAULT NULL,
-  `umpire` varchar(30) DEFAULT NULL,
   `venueID` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `match_performance`
---
-
-CREATE TABLE `match_performance` (
-  `playerID` int(10) NOT NULL,
-  `matchID` int(10) NOT NULL,
-  `total_runs` int(7) NOT NULL,
-  `total_wickets` int(7) NOT NULL,
-  `outstanding_performance` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment_schedule`
---
-
-CREATE TABLE `payment_schedule` (
-  `paymentID` int(20) NOT NULL,
-  `due_date` date NOT NULL,
-  `actual_payment_date` date NOT NULL,
-  `amount_paid` decimal(12,2) NOT NULL,
-  `payment_serial` int(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -183,7 +149,7 @@ ALTER TABLE `clubs`
 -- Indexes for table `contracts`
 --
 ALTER TABLE `contracts`
-  ADD PRIMARY KEY (`paymentID`);
+  ADD PRIMARY KEY (`contractID`);
 
 --
 -- Indexes for table `events_organised`
@@ -196,12 +162,6 @@ ALTER TABLE `events_organised`
 --
 ALTER TABLE `matches`
   ADD PRIMARY KEY (`matchID`);
-
---
--- Indexes for table `match_performance`
---
-ALTER TABLE `match_performance`
-  ADD KEY `matchID` (`matchID`);
 
 --
 -- Indexes for table `players`
