@@ -201,7 +201,7 @@ ALTER TABLE `clubs`
 -- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `paymentID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `contractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `players`
