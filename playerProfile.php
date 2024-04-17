@@ -24,7 +24,7 @@
 
 <ul class="subMenu">
     <li><a class="active" href="playerSearch.php">Player Profile</a></li>
-    <li><a href="clubProfile.php">Club Profile</a></li>
+    <li><a href="clubSearch.php">Club Profile</a></li>
 </ul>
 
 <body>

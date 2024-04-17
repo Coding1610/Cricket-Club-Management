@@ -18,7 +18,7 @@
 </div>
 
 <ul class="subMenu">
-    <li><a class="active" href="playerRegistration.php">Player Profile</a></li>
+    <li><a class="active" href="playerSearch.php">Player Profile</a></li>
     <li><a href="clubSearch.php">Club Profile</a></li>
 </ul>
 
