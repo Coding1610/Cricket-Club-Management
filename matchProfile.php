@@ -14,7 +14,7 @@
 
 <ul>
     <li><a href="home.php">Home</a></li>
-    <li><a  href="playerRegistration.php">Registration</a></li>
+    <li><a href="playerRegistration.php">Registration</a></li>
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 

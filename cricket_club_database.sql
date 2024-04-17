@@ -1,22 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.8.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Sep 01, 2018 at 06:31 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `cricket_club_database`
@@ -33,22 +18,6 @@ CREATE TABLE `clubs` (
   `club_name` varchar(30) NOT NULL,
   `president` varchar(30) DEFAULT NULL,
   `date_established` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contracts`
---
-
-CREATE TABLE `contracts` (
-  `playerID` int(10) NOT NULL,
-  `clubID` int(10) NOT NULL,
-  `contract_start_date` date NOT NULL,
-  `contract_end_date` date NOT NULL,
-  `contractID` int(20) UNSIGNED NOT NULL,
-  `designation` varchar(30) NOT NULL,
-  `authorized_person` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

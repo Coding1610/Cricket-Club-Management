@@ -112,7 +112,6 @@
 <ul class="subMenu">
     <li><a class="active" href="playerRegistration.php">Player Registration</a></li>
     <li><a href="clubRegistration.php">Club Registration</a></li>
-    <li><a href="contractForm.php">Contract Form</a></li>
     <li><a href="teamInfoForm.php">Team Information Form</a></li>
     <li><a href="matchInfoForm.php">Match Information Form</a></li>
 </ul>

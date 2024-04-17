@@ -53,16 +53,6 @@ FONT
     width: 100%;
 }
 
-.contractPage
-{
-    background: url("images/contracts.jpg") no-repeat center bottom;
-    padding: 0 0 500px;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
-
 .teamPage
 {
     background: url("images/teams.jpg") no-repeat center;
@@ -206,7 +196,7 @@ input[type=text]:focus, select:focus, input[type=date]:focus, input[type=number]
     display: inline-block;
     border: 3px solid #ed456f;
     box-sizing: border-box;
-    user-focus-pointer: none;
+    cursor: none;
     outline: none;
     -webkit-transition: 0.5s;
     transition: 0.5s;
