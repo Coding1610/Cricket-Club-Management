@@ -8,30 +8,32 @@
 
         // events_organised Table ------------------------------------------------------------------------------------------
         $event_ID = $_POST['eventID'];
-        $event_name = $_POST['eventName'];
-        $event_start_date = $_POST['eventStart'];
-        $event_end_date = $_POST['eventEnd'];
 
-        // Insert into the events_organised table
-        $eventQuery = "INSERT INTO events_organised (eventID, eventName, start_date, end_date) 
-                        VALUES ('$event_ID', '$event_name', '$event_start_date', '$event_end_date')";
+        $eventInfo = "SELECT eventID AS eventID
+                    FROM events_organised WHERE eventID = '$event_ID'";
 
-        commitTable($conn, $eventQuery);
+        $result = mysqli_query($conn, $eventInfo);
+        $info = mysqli_fetch_assoc($result);
+
+        if(!empty($info['eventID'])){
+            // matches Table ---------------------------------------------------------------------------------------------------
+            $venue = $_POST['venue'];
+            $match_date = $_POST['matchDate'];
+            $match_ID = $_POST["matchID"];
+            $mvp = $_POST["MVP"];
+            $batting_first = $_POST["battingFirst"];
+            $bowling_first = $_POST["bowlingFirst"];
 
 
-        // matches Table ---------------------------------------------------------------------------------------------------
-        $venue = $_POST['venue'];
-        $match_date = $_POST['matchDate'];
-        $match_ID = $_POST["matchID"];
-        $mvp = $_POST["MVP"];
-        $batting_first = $_POST["battingFirst"];
-        $bowling_first = $_POST["bowlingFirst"];
+            $matchQuery = "INSERT INTO matches (matchID, eventID, venue, date_of_match, man_of_the_match, team_batting_first, team_bowling_first)
+                        VALUES ('$match_ID', '$event_ID', '$venue', '$match_date', '$mvp', '$batting_first', '$bowling_first')";
 
+            commitTable($conn, $matchQuery);
+        }
+        else{
+            echo "<script> alert('Event does not exist.'); </script>";
+        }
         
-        $matchQuery = "INSERT INTO matches (matchID, venue, date_of_match, man_of_the_match, team_batting_first, team_bowling_first)
-                            VALUES ('$match_ID', '$venue', '$match_date', '$mvp', '$batting_first', '$bowling_first')";
-
-        commitTable($conn, $matchQuery);
 
         mysqli_close($conn);
     }
@@ -76,9 +78,6 @@
 
         <h4 class="headers">Event Information </h4>
         Event ID: <input type="number" name="eventID" title="Event ID" placeholder="Event ID"><br><br>
-        Event Name: <input type="text" name="eventName" title="Event Name" placeholder="Name of the Event"><br><br>
-        Event Start Date: <input type="date" name="eventStart" title="Event Start Date"><br><br>
-        Event End Date: <input type="date" name="eventEnd" title="Event End Date"><br><br>
 
         <table  id="matchTable" border = "1" cellspacing="0" cellpadding="1">
             <caption><h4 class="headers">Match Information Form</h4></caption>

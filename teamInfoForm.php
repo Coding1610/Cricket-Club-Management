@@ -5,58 +5,85 @@
         require "connection.php";
         require "manualCommit.php";
 
-
-        // teams Table -------------------------------------------------------------------------------------------------
         $club_ID = $_POST['clubID'];
-        $team_formation_date = $_POST['formationDate'];
-        $event_ID = $_POST['eventID'];
-        $leader_ID = $_POST['leaderID'];
-        $coach_ID = $_POST['coachID'];
-        $coach_name = $_POST['coachName'];
 
-        // Insert into the teams table
-        $teamQuery = "INSERT INTO teams (clubID, formation_date, eventID, team_leaderID, coachID, coach_name) 
-                      VALUES ('$club_ID', '$team_formation_date', '$event_ID', '$leader_ID', '$coach_ID', '$coach_name')";
+        $clubInfo = "SELECT clubID AS clubID
+                    FROM clubs WHERE clubID = '$club_ID'";
 
-        commitTable($conn, $teamQuery);
+        $result = mysqli_query($conn, $clubInfo);
+        $info = mysqli_fetch_assoc($result);
+
+        if(!empty($info['clubID'])){
+            //event table--------------------------------------------------------------------------------------------------
+            $event_ID = $_POST['eventID'];
+            $event_name = $_POST['eventName'];
+
+            // to check if event is already exist
+            $eventInfo = "SELECT eventID AS eventID
+                        FROM events_organised WHERE eventID = '$event_ID'";
+
+            $result = mysqli_query($conn, $eventInfo);
+            $info = mysqli_fetch_assoc($result);
+
+            if(empty($info['eventID'])){
+                $eventQuery = "INSERT INTO events_organised (eventID, eventName) 
+                        VALUES ('$event_ID', '$event_name')";
+                commitTable($conn, $eventQuery);
+            }
+
+            // teams Table -------------------------------------------------------------------------------------------------
+            $team_formation_date = $_POST['formationDate'];
+            $leader_ID = $_POST['leaderID'];
+            $coach_ID = $_POST['coachID'];
+            $coach_name = $_POST['coachName'];
+
+            // Insert into the teams table
+            $teamQuery = "INSERT INTO teams (clubID, formation_date, eventID, team_leaderID, coachID, coach_name) 
+                        VALUES ('$club_ID', '$team_formation_date', '$event_ID', '$leader_ID', '$coach_ID', '$coach_name')";
+
+            commitTable($conn, $teamQuery);
 
 
-        // Get teamID from teams table
-        $getTeamID = "SELECT MAX(teamID) AS LastTeamID FROM teams";
+            // Get teamID from teams table
+            $getTeamID = "SELECT MAX(teamID) AS LastTeamID FROM teams";
 
-        if ($result = mysqli_query($conn, $getTeamID))
-            if (mysqli_num_rows($result) > 0)
-                $tID = mysqli_fetch_assoc($result);
+            if ($result = mysqli_query($conn, $getTeamID))
+                if (mysqli_num_rows($result) > 0)
+                    $tID = mysqli_fetch_assoc($result);
 
 
-        // team_playerList Table ---------------------------------------------------------------------------------------
-        $player_ID = array();
-        $player_name = array();
+            // team_playerList Table ---------------------------------------------------------------------------------------
+            $player_ID = array();
+            $player_name = array();
 
-        for ($i=0; $i<15; $i++)
-        {
-            if (isset($_POST["playerID" . $i]))
+            for ($i=0; $i<15; $i++)
             {
-                $player_ID[$i] = $_POST["playerID" . $i];
-                $player_name[$i] = $_POST["playerName" . $i];
+                if (isset($_POST["playerID" . $i]))
+                {
+                    $player_ID[$i] = $_POST["playerID" . $i];
+                    $player_name[$i] = $_POST["playerName" . $i];
+                }
+            }
+
+            // Insert into the team_playerList table
+            if (!empty($player_ID[0]))
+            {
+                $playerListQuery = "INSERT INTO team_playerlist (teamID, playerID, player_name) 
+                                    VALUES ('" . $tID['LastTeamID'] . "', '$player_ID[0]', '$player_name[0]')";
+
+                for ($i=1; $i<15; $i++)
+                {
+                    if (!empty($player_ID[$i]))
+                        $playerListQuery .= ", ('" . $tID['LastTeamID'] . "', '$player_ID[$i]', '$player_name[$i]')";
+                    else
+                        break;
+                }
+
+                commitTable($conn, $playerListQuery);
             }
         }
-
-        // Insert into the team_playerList table
-        if (!empty($player_ID[0]))
-        {
-            $playerListQuery = "INSERT INTO team_playerlist (teamID, playerID, player_name) 
-                                VALUES ('" . $tID['LastTeamID'] . "', '$player_ID[0]', '$player_name[0]')";
-
-            for ($i=1; $i<15; $i++)
-            {
-                if (!empty($player_ID[$i]))
-                    $playerListQuery .= ", ('" . $tID['LastTeamID'] . "', '$player_ID[$i]', '$player_name[$i]')";
-                else
-                    break;
-            }
-
-            commitTable($conn, $playerListQuery);
+        else{
+            echo "<script> alert('Club does not exist. Please Register this Club First'); </script>";
         }
 
         mysqli_close($conn);
@@ -124,7 +151,6 @@
 
         <h4 class="headers">Club Information</h4>
         Club ID: <input type="number" name="clubID" title="Club ID" placeholder="Club ID"><br><br>
-        Club Name: <input type="text" name="clubName" title="Club Name" placeholder="Name of the Club"><br><br>
         Team Formation Date: <input type="date" name="formationDate" title="Team Formation Date"><br><br>
 
         <h4 class="headers">Event Information</h4>

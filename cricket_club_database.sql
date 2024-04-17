@@ -59,8 +59,6 @@ CREATE TABLE `contracts` (
 
 CREATE TABLE `events_organised` (
   `eventID` int(10) NOT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
   `eventName` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -72,6 +70,7 @@ CREATE TABLE `events_organised` (
 
 CREATE TABLE `matches` (
   `matchID` int(15) NOT NULL,
+  `eventID` int(15) NOT NULL,
   `date_of_match` date DEFAULT NULL,
   `team_batting_first` varchar(30) DEFAULT NULL,
   `team_bowling_first` varchar(30) DEFAULT NULL,
