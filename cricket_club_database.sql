@@ -76,7 +76,7 @@ CREATE TABLE `matches` (
   `team_batting_first` varchar(30) DEFAULT NULL,
   `team_bowling_first` varchar(30) DEFAULT NULL,
   `man_of_the_match` varchar(30) DEFAULT NULL,
-  `venueID` int(5) DEFAULT NULL
+  `venue` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

@@ -22,13 +22,14 @@
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 
-<div class="playerProfile">
+<div class="clubPage">
     <h1 class="pageName">Club Profile</h1>
 </div>
 
 <ul class="subMenu">
     <li><a href="playerSearch.php">Player Profile</a></li>
     <li><a class="active" href="clubSearch.php">Club Profile</a></li>
+    <li><a href="teamSearch.php">Team Profile</a></li>
 </ul>
 
 <body>

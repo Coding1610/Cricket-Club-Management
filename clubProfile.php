@@ -18,7 +18,7 @@
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 
-<div class="playerProfile">
+<div class="clubPage">
     <h1 class="pageName">Player Profile</h1>
 </div>
 

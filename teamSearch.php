@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Player Search</title>
+    <title>Team Search</title>
 </head>
 
 <ul>
@@ -13,24 +13,24 @@
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 
-<div class="playerProfile">
-    <h1 class="pageName">Player Profile</h1>
+<div class="teamPage">
+    <h1 class="pageName">Team Profile</h1>
 </div>
 
 <ul class="subMenu">
-    <li><a class="active" href="playerSearch.php">Player Profile</a></li>
+    <li><a href="playerSearch.php">Player Profile</a></li>
     <li><a href="clubSearch.php">Club Profile</a></li>
-    <li><a href="teamSearch.php">Team Profile</a></li>
+    <li><a class="active" href="teamSearch.php">Team Profile</a></li>
 </ul>
 
 <body>
 
 <div class="forms">
-    <form class="forms" action="playerProfile.php" method="post">
+    <form class="forms" action="teamProfile.php" method="post">
 
-        <h4 class="headers">Search using player ID </h4>
+        <h4 class="headers">Search using Team ID </h4>
 
-        <input type="search" name="playerSearch" title="Search using player ID" placeholder="Search..." required><br><br>
+        <input type="search" name="teamSearch" title="Search using team ID" placeholder="Search..." required><br><br>
 
         <input type="submit" name="Search">
 
