@@ -30,6 +30,7 @@
     <li><a href="playerSearch.php">Player Profile</a></li>
     <li><a class="active" href="clubSearch.php">Club Profile</a></li>
     <li><a href="teamSearch.php">Team Profile</a></li>
+    <li><a href="matchSearch.php">Match Profile</a></li>
 </ul>
 
 <body>

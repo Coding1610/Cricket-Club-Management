@@ -14,11 +14,11 @@
 
 <ul>
     <li><a href="home.php">Home</a></li>
-    <li><a  href="playerRegistration.php">Registration</a></li>
+    <li><a href="playerRegistration.php">Registration</a></li>
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 
-<div class="playerProfile">
+<div class="teamPage">
     <h1 class="pageName">Team Profile</h1>
 </div>
 
@@ -26,6 +26,7 @@
     <li><a href="playerSearch.php">Player Profile</a></li>
     <li><a href="clubSearch.php">Club Profile</a></li>
     <li><a class="active" href="teamSearch.php">Team Profile</a></li>
+    <li><a href="matchSearch.php">Match Profile</a></li>
 </ul>
 
 <body>

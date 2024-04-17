@@ -13,25 +13,25 @@
     <li><a class="active" href="playerSearch.php">Information</a></li>
 </ul>
 
-<div class="teamPage">
-    <h1 class="pageName">Team Profile</h1>
+<div class="matchPage">
+    <h1 class="pageName">Match Profile</h1>
 </div>
 
 <ul class="subMenu">
     <li><a href="playerSearch.php">Player Profile</a></li>
     <li><a href="clubSearch.php">Club Profile</a></li>
-    <li><a class="active" href="teamSearch.php">Team Profile</a></li>
-    <li><a href="matchSearch.php">Match Profile</a></li>
+    <li><a href="teamSearch.php">Team Profile</a></li>
+    <li><a class="active" href="matchSearch.php">Match Profile</a></li>
 </ul>
 
 <body>
 
 <div class="forms">
-    <form class="forms" action="teamProfile.php" method="post">
+    <form class="forms" action="matchProfile.php" method="post">
 
-        <h4 class="headers">Search using Team ID </h4>
+        <h4 class="headers">Search using Match ID </h4>
 
-        <input type="search" name="teamSearch" title="Search using team ID" placeholder="Search..." required><br><br>
+        <input type="search" name="matchSearch" title="Search using match ID" placeholder="Search..." required><br><br>
 
         <input type="submit" name="Search">
 
