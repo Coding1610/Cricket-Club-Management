@@ -33,7 +33,7 @@ FONT
 
 .playerPage, .playerProfile
 {
-    background: url("images/players.jpg") no-repeat center top;
+    background: url("images/P.jpg") no-repeat center top;
     background-size: contain;
     padding: 0 0 500px;
     display: block;
@@ -66,7 +66,8 @@ FONT
 
 .matchPage
 {
-    background: url("images/matches.jpg") no-repeat center top 50%;
+    background: url("images/C.jpg") no-repeat center top 50%;
+    background-size: contain;
     padding: 0 0 500px;
     display: block;
     top: 0;
