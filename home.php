@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="CCBStyleSheet.css">
 
 <head>
-    <title>Cricket Club Database</title>
+    <title>Cricket Club Management</title>
 </head>
 
 <ul>
@@ -13,7 +13,7 @@
 </ul>
 
 <div class="homePage">
-    <h1 class="pageName">Cricket Club Database</h1>
+    <h1 class="pageName">Cricket Club Management</h1>
 </div>
 
 </html>
